@@ -1,3 +1,5 @@
 body {
     padding: 10px;
+    background-color: black;
+    min-height: 100vh;
 }
