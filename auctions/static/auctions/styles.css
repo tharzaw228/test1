@@ -1,5 +1,11 @@
 body {
+    display: block;
     padding: 10px;
     background-color: black;
     min-height: 100vh;
+}
+
+.navbar .collapse{
+    display: block;
+    justify-content: space-around;
 }
