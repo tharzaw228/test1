@@ -2,6 +2,21 @@
 
 {% block body %}
     <h2>Active Listings</h2>
+        {% for listing in listings %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{ listing.image }}" alt="{{ listing.title }}" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-4">
+                        <h1>{{ listing.title }}</h1>
+                        <p>Price: ${{ listing.price }}</p>
+                        <small class="text-muted mt-auto">Owned By {{ listing.owner }}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
 
-    TODO
-{% endblock %} 
