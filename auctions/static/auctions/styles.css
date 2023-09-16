@@ -1,3 +1,7 @@
 body {
-    padding: 10px;
+    padding: 0px;
+}
+
+body h2 {
+    font-size: 1px;
 }
