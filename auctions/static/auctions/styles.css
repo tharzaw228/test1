@@ -1,7 +1,49 @@
+<<<<<<< HEAD
 body {
     padding: 0px;
 }
 
 body h2 {
     font-size: 1px;
+=======
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    
+}
+
+
+.listing .image img {
+    size: 100px;
+}
+
+.listing .header h3 {
+    font-size: 100px;
+}
+
+body .listing {
+    display: flex;
+}
+
+body .test {
+    display: flex;
+    width: 50%;
+    height: 200px;
+    justify-content: space-between;
+}
+
+.test .test-title h1 {
+    font-size: 200px;
+}
+
+
+.img-small {
+    max-width: 100px; /* Adjust the maximum width as needed */
+    max-height: 100px; /* Adjust the maximum height as needed */
+>>>>>>> layout
 }

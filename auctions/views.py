@@ -3,12 +3,19 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from .models import Listing
+from .forms import CreatListing
 
 from .models import User
 
 
+
 def index(request):
-    return render(request, "auctions/index.html")
+    listings = Listing.objects.all()
+    context = {
+        "listings" : listings
+    }
+    return render(request, "auctions/index.html", context)
 
 
 def login_view(request):
@@ -61,3 +68,16 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "auctions/register.html")
+
+
+def create_listing(request):
+    if request.method == "POST":
+        form = CreatListing(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("index"))
+    form = CreatListing()
+    context = {
+        'form' : form
+    }
+    return render(request, 'auctions/create_listing.html', context)
