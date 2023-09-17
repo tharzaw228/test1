@@ -1,22 +1,23 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2>Active Listings</h2>
+    <h2 class="mb-5">Active Listings</h2>
+    <div class="row ">
         {% for listing in listings %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="{{ listing.image }}" alt="{{ listing.title }}" class="img-thumbnail">
-                    </div>
-                    <div class="col-md-4">
-                        <h1>{{ listing.title }}</h1>
-                        <p>Price: ${{ listing.price }}</p>
-                        <small class="text-muted mt-auto">Owned By {{ listing.owner }}</small>
-                    </div>
+            
+            <div class="card ml-5 mr-4 mb-4 mt-5" style="width: 18rem;">
+                <img src="{{ listing.image }}" class="card-img-top" alt="{{ product.title }}">
+                <div class="card-header">
+                    <strong class="card-title">{{ listing.title }}</strong>
                 </div>
-            </div>
+                <div class="card-body px-3">
+                  <p class="card-text">{{ listing.description|truncatechars:100 }}</p>
+                </div>
+                <div class="card-footer">
+                    <small>Price ${{ listing.price }}</small>
+                </div>
+              </div>
+              
         {% endfor %}
     </div>
-    
 {% endblock %}
-
