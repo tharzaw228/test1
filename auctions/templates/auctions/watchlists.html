@@ -1,9 +1,9 @@
 {% extends "auctions/layout.html" %}
 
 {% block body %}
-    <h2 class="mb-5">Active Listings</h2>
+    <h2 class="mb-5">Watchlist Listings</h2>
     <div class="row ">
-        {% for listing in listings %}
+        {% for listing in watchlists %}
         
             <div class="card ml-5 mr-4 mb-4 mt-5" style="width: 18rem;">
                 <a href="{% url 'listing' listing.id %}">
@@ -19,6 +19,7 @@
                     </div>
                 </a>
             </div>
-        {% endfor %}
+        
+    {% endfor %}
     </div>
 {% endblock %}

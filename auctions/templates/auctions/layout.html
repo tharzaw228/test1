@@ -12,7 +12,7 @@
 
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet" >
         <style>
-            .card-img-top {
+            .img-fluid, .card-img-top {
                 max-width: 200px;
                 max-height: 260px;
             }
@@ -22,16 +22,34 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-            <a class="navbar-brand" href="{% url 'index' %}">Auctions</a>
+            <a class="navbar-brand" href="{% url 'index' %}">CS50-Web Auctions</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 
                 <li class="nav-item active">
                   <a class="nav-link" href="{% url 'index' %}">Active Listings <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'categories' %}">Categories <span class="sr-only">(current)</span></a>
+                </li>
+                
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'watchlists' %}">
+                            Watchlist
+                            <span class="badge badge-secondary ml-1">{{ user.watchlists.all.count }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'closed-listings' %}">
+                            Closed Listings
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'create-listing' %}">Create Listings <span class="sr-only">(current)</span></a>
                     </li>
                 {% else %}
                     <li class="nav-item">
@@ -40,8 +58,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'register' %}">Register</a>
                     </li>
+                    <li class="nav-item">
+                        
+                    </li>
                 {% endif %}
-                
               </ul>
             </div>
             <div>
