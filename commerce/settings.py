@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 BOOTSTRAP3 = {
 'include_jquery': True,
 }
+
+LOGIN_URL = '/login/'
